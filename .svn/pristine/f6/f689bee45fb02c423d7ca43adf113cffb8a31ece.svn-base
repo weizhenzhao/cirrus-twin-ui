@@ -1,0 +1,598 @@
+define(['angular', './px-module'], function(angular, pxModule) {
+    'use strict';
+    return pxModule.controller('ChartCtrl', ['$scope','$http','$stateParams', function($scope,$http,$stateParams) {
+
+        var recordBtn='off';
+        var fontSize=15;
+        var aiLink = 'https://cirrus-twin-qa.run.aws-usw02-pr.ice.predix.io/TEMP/';
+        var sufTxtPre='<div class="message" style="padding:0;margin-top:-16px;"><table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;"><tr><td style="vertical-align:middle;width:53px;"><img  src="images/robot.png"></td><td class="msgFont" style="padding-left:15px;font-size:'+fontSize+'px ;">';
+        var preTxtPre='<div class="message" style="margin-top:-25px;"><table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;"><tr><td class="msgFont" style="padding-left:15px;padding-right:16px;text-align: right;font-size:'+fontSize+'px ;">';
+
+        var sufTxtSuf='</td></tr></table></div>';
+        var preTxtSuf='</td><td style="vertical-align:middle; width: 50px;height: 50px;"><img style="margin-right: -35px;" src="images/man2.png"></td></tr></table></div>';
+         var errorSoundSuf='</td><td style="vertical-align:middle;width: 50px;height: 50px;"><img  style="margin-right: -44.5px;" src="images/man2.png"></td></tr></table></div>';
+        var closeThreeDiv='</div></div></div>';
+        var detailAnswerTxtPre='<div class="title_right">Detail Answer</div><div class="messageDetail"><img src="images/robot.png" width="40" height="40"><div class="bubble left" style="overflow: auto"><div class="bubble_cont" style="color:#ddd;font-size:'+fontSize+'px ;">';
+        var datailAnswerTxtSuf='';
+
+        var audioObj =  document.querySelector('#audioView');;
+        var canvasObj =document.querySelector('#canvas');
+        $("#audioView")[0].volume=0.01;
+        var vudio = new Vudio(audioObj, canvasObj, {
+            effect : 'waveform',
+            accuracy : 128, // 精度,实际表现为波形柱的个数，范围16-16348，必须为2的N次方
+            width : 250, // canvas宽度，会覆盖canvas标签中定义的宽度
+            height : 30, // canvas高度，会覆盖canvas标签中定义的高度
+            waveform : {
+                maxHeight : 30, // 最大波形高度
+                minHeight : 1, // 最小波形高度
+                spacing:1, // 波形间隔
+                color : '#BDCBD4', // 波形颜色，可以传入数组以生成渐变色
+                shadowBlur : 0, // 阴影模糊半径
+                shadowColor : '#f00', // 阴影颜色
+                fadeSide : true, // 渐隐两端
+                horizontalAlign : 'center', // 水平对齐方式，left/center/right
+                verticalAlign: 'middle' // 垂直对齐方式 top/middle/bottom
+            }
+        });
+        vudio.dance();
+
+
+        $scope.aiResp = {};
+        $scope.image = {} ;
+
+        $scope.manageRecord = function(){
+            if(recordBtn=='off'){
+                recordBtn='on';
+                $('#recordImg').attr('src','images/voice-on.png');
+                $scope.startRecord();
+            }else if(recordBtn=='on'){
+                recordBtn='off';
+                $('#recordImg').attr('src','images/voice-off.png');
+                $scope.stopRecord();
+            }
+
+        }
+
+        $scope.keyEvent = function(){
+            var code = event.keyCode;
+            if(code == 13&&!event.shiftKey){
+                $scope.sendMsg();
+            }
+        }
+
+        $scope.fontLarger=function(){
+            fontSize=fontSize+1;
+            $(".msgFont").css("font-size",  parseFloat($(".msgFont").css("font-size") , 10)+1 +'px');
+            $(".bubble_cont").css("font-size",  parseFloat($(".bubble_cont").css("font-size") , 10)+1 +'px');
+            $(".sendTxtArea").css("font-size",  parseFloat($(".sendTxtArea").css("font-size") , 10)+1 +'px');
+
+            sufTxtPre='<div class="message" style="padding:0;margin-top:-16px;"><table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;"><tr><td style="vertical-align:middle;width:53px;"><img  src="images/robot.png"></td><td class="msgFont" style="padding-left:15px;font-size:'+fontSize+'px ;">';
+            preTxtPre='<div class="message" style="margin-top:-25px;"><table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;"><tr><td class="msgFont" style="padding-left:15px;padding-right:16px;text-align: right;font-size:'+fontSize+'px ;">';
+            detailAnswerTxtPre='<div class="title_right">Detail Answer</div><div class="messageDetail"><img src="images/robot.png" width="40" height="40"><div class="bubble left" style="overflow: auto"><div class="bubble_cont" style="color:#ddd;font-size:'+fontSize+'px ;">';
+
+        }
+
+         $scope.fontSmaller=function(){
+            fontSize=fontSize-1;
+            $(".msgFont").css("font-size",  parseFloat($(".msgFont").css("font-size") , 10)-1 +'px');
+            $(".bubble_cont").css("font-size",  parseFloat($(".bubble_cont").css("font-size") , 10)-1 +'px');
+             $(".sendTxtArea").css("font-size",  parseFloat($(".sendTxtArea").css("font-size") , 10)-1 +'px');
+
+             sufTxtPre='<div class="message" style="padding:0;margin-top:-16px;"><table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;"><tr><td style="vertical-align:middle;width:53px;"><img  src="images/robot.png"></td><td class="msgFont" style="padding-left:15px;font-size:'+fontSize+'px ;">';
+             preTxtPre='<div class="message" style="margin-top:-25px;"><table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;"><tr><td class="msgFont" style="padding-left:15px;padding-right:16px;text-align: right;font-size:'+fontSize+'px ;">';
+             detailAnswerTxtPre='<div class="title_right">Detail Answer</div><div class="messageDetail"><img src="images/robot.png" width="40" height="40"><div class="bubble left" style="overflow: auto"><div class="bubble_cont" style="color:#ddd;font-size:'+fontSize+'px ;">';
+
+         }
+
+
+        function dataURLtoBlob(dataurl) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while(n--){
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], {type:mime});
+        }
+        if(sessionStorage.getItem('mute')=='false'||sessionStorage.getItem('mute')==null||sessionStorage.getItem('mute')==''||sessionStorage.getItem('mute')==undefined){
+            sessionStorage.setItem('mute','false');
+            $('#muteBtn').attr('class','muteFalse');
+        }else{
+            sessionStorage.setItem('mute','true');
+            $('#muteBtn').attr('class','muteTrue');
+        }
+        $scope.recorder;
+        var audio = $("audio[name='speechvalue']");
+
+        function imgRealSize(img) {
+            var $img = $(img);
+            if ($img.prop('naturalWidth') == undefined) {
+                var $tmpImg = $('<img/>').attr('src', $img.attr('src'));
+                $img.prop('naturalWidth', $tmpImg[0].width);
+                $img.prop('naturalHeight', $tmpImg[0].height);
+            }
+            return { 'width': $img.prop('naturalWidth'), 'height': $img.prop('naturalHeight') }
+        }
+
+
+        $scope.sendMsg= function(){
+            var preTxt = preTxtPre+ $scope.sendTxt+preTxtSuf;
+            if($scope.sendTxt!=''){
+                $("#chartContent").append(preTxt);
+
+                var allHeight = $('#chartContent').height().toString().split('px')[0];
+                $(".message").each(function(){
+                    allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                });
+                $('#chartContent').scrollTop(allHeight);
+            }
+            var isMuted = sessionStorage.getItem('mute');
+            if(isMuted == 'false'){
+                $http({
+                    url: 'api/CirrusTwin/getAnswerByText2Voice/'+$scope.sendTxt+'/'+$('#gender').val()+'/',
+                    method: 'GET'
+                }).success(function (data, header, config, status) {
+
+                    console.log(angular.toJson(data));
+                    var audioUrl = angular.fromJson(data).answervoice;
+                    audioUrl =  aiLink+audioUrl.toString().split('/TEMP/')[1]
+                    $('#audio').attr('src',audioUrl);
+                    playRecord();
+
+                    if(angular.toJson(data).indexOf('errormessage')!=-1){
+                        var answer = angular.fromJson(data).errormessage;
+                        var sufTxt = sufTxtPre+answer+sufTxtSuf;
+                        $("#chartContent").append(sufTxt);
+                        var allHeight = $('#chartContent').height().toString().split('px')[0];
+                        $(".message").each(function(){
+                            allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                        });
+                        $('#chartContent').scrollTop(allHeight);
+                    }else{
+                        var jsonObj = angular.fromJson(data);
+                        $scope.aiResp.intend = jsonObj.answer;
+                        $scope.aiResp.id=jsonObj.parameterId;
+                        //get answer details by intend
+                        $http({
+                            url: '/manage/answerManage/getAnswerDetailByIntend/',
+                            data:$scope.aiResp,
+                            method: 'POST'
+                        }).success(function (data, header, config, status) {
+                            var answer = angular.fromJson(data).answer;
+                            if(answer==null){
+                                var sufTxt = sufTxtPre+'Please correct your input.'+sufTxtSuf;
+                                $("#chartContent").append(sufTxt);
+                                var allHeight = $('#chartContent').height().toString().split('px')[0];
+                                $(".message").each(function(){
+                                    allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                                });
+                                $('#chartContent').scrollTop(allHeight);
+                                return;
+                            }
+                            var detailAnswer = angular.fromJson(data).detailAnswer;
+                            console.log('fff'+detailAnswer);
+                            var fileNames = angular.fromJson(data).fileNames;
+                            var paramId = angular.fromJson(data).id;
+                            var sufTxt = sufTxtPre+answer+sufTxtSuf;
+                            $("#chartContent").append(sufTxt);
+                            var allHeight = $('#chartContent').height().toString().split('px')[0];
+                            $(".message").each(function(){
+                                allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                            });
+                            $('#chartContent').scrollTop(allHeight);
+
+                            if(trim(detailAnswer)!='<p><br></p>'&&trim(detailAnswer)!=''&&detailAnswer!=undefined&&detailAnswer!=null){
+                                if(fileNames.length==0){
+                                    var detailTxt =detailAnswerTxtPre+detailAnswer+closeThreeDiv;
+                                    $('#detailArea').html(detailTxt);
+
+                                     console.log('cfcfcf'+detailTxt);
+                                }else{
+                                    $scope.image.paramId=paramId;
+                                    console.log('paramId='+$scope.image.paramId);
+                                    $http({
+                                        url: '/manage/answerManage/loadImages/',
+                                        method: 'POST',
+                                        data:$scope.image
+                                    }).then(function (data) {
+                                        var tempHtml =detailAnswerTxtPre+detailAnswer+closeThreeDiv;
+                                        tempHtml = tempHtml.replace('<br></p>','</p><br>');
+                                         console.log('fcfcfc'+tempHtml);
+                                        for(var i=0;i<angular.fromJson(data.data).length;i++){
+                                            var answerDetail = angular.fromJson(angular.fromJson(data.data)[i]);
+                                            var tempName=trim(answerDetail.fileName);
+                                            tempHtml = tempHtml.replace(tempName,'data:image/png;base64,'+answerDetail.fileContent);
+                                            // tempHtml = tempHtml.replace('<img','<img ng-click="changeImgSize()"');
+                                            // alert(tempHtml);
+                                        }
+                                           $('#detailArea').html(tempHtml);
+                                        //imgBigger
+                                         $('#detailArea').find("img").each(function(i){
+                                             if(i!=0){
+                                                 var imgSize = angular.fromJson(imgRealSize($(this)));//就是他的宽度
+                                                 var imgHeight = imgSize.height;
+                                                 var imgWidth = imgSize.width;
+                                                 // $(this).attr('ng-click','changeImgSize(this)');
+                                                 $(this).attr('width',imgWidth/2+'px');
+                                                 $(this).attr('height',imgHeight/2+'px');
+                                                 $(this).attr('onclick','changeImgSize(this)');
+                                                 $(this).attr('flag','s');
+                                             }
+                                        });
+                                    });
+                                }
+                            }else{
+                                console.log('no details');
+                            }
+                        });
+                    }
+
+                });
+            }else if(isMuted =='true'){
+                $http({
+                    url: 'api/CirrusTwin/getAnswerByText/'+$scope.sendTxt+'/',
+                    method: 'GET'
+                }).success(function (data, header, config, status) {
+
+                    if(angular.toJson(data).indexOf('errormessage')!=-1){
+                        var answer = angular.fromJson(data).errormessage;
+                        var sufTxt = sufTxtPre+answer+sufTxtSuf;
+                        $("#chartContent").append(sufTxt);
+                        var allHeight = $('#chartContent').height().toString().split('px')[0];
+                        $(".message").each(function(){
+                            allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                        });
+                        $('#chartContent').scrollTop(allHeight);
+                    }else{
+                       var jsonObj = angular.fromJson(data);
+                        $scope.aiResp.intend = jsonObj.answer;
+                        $scope.aiResp.id=jsonObj.parameterId;
+                        //get answer details by intend
+                        $http({
+                            url: '/manage/answerManage/getAnswerDetailByIntend/',
+                            data:$scope.aiResp,
+                            method: 'POST'
+                        }).success(function (data, header, config, status) {
+                            var answer = angular.fromJson(data).answer;
+                            if(answer==null){
+                                var sufTxt = sufTxtPre+'Please correct your input.'+sufTxtSuf;
+                                $("#chartContent").append(sufTxt);
+                                var allHeight = $('#chartContent').height().toString().split('px')[0];
+                                $(".message").each(function(){
+                                    allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                                });
+                                $('#chartContent').scrollTop(allHeight);
+                                return;
+                            }
+                            var detailAnswer = angular.fromJson(data).detailAnswer;
+                            var fileNames = angular.fromJson(data).fileNames;
+                            var paramId = angular.fromJson(data).id;
+
+                            var sufTxt = sufTxtPre+answer+sufTxtSuf;
+                            $("#chartContent").append(sufTxt);
+                            var allHeight = $('#chartContent').height().toString().split('px')[0];
+                            $(".message").each(function(){
+                                allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                            });
+                            $('#chartContent').scrollTop(allHeight);
+                            if(detailAnswer!=''&&detailAnswer!=undefined&&detailAnswer!=null){
+                                if(fileNames.length==0){
+                                    var detailTxt =detailAnswerTxtPre+detailAnswer+closeThreeDiv;
+                                    $('#detailArea').html(detailTxt);
+                                }else{
+                                    $scope.image.paramId=paramId;
+                                    $http({
+                                        url: '/manage/answerManage/loadImages/',
+                                        method: 'POST',
+                                        data:$scope.image
+                                    }).then(function (data) {
+                                        var tempHtml =detailAnswerTxtPre+detailAnswer+closeThreeDiv;
+                                        tempHtml = tempHtml.replace('<br></p>','</p><br>');
+                                        for(var i=0;i<angular.fromJson(data.data).length;i++){
+                                            var answerDetail = angular.fromJson(angular.fromJson(data.data)[i]);
+                                            var tempName=trim(answerDetail.fileName);
+                                            tempHtml = tempHtml.replace(tempName,'data:image/png;base64,'+answerDetail.fileContent);
+                                        }
+                                           $('#detailArea').html(tempHtml);
+                                        $('#detailArea').find("img").each(function(i){
+                                            if(i!=0){
+                                                var imgSize = angular.fromJson(imgRealSize($(this)));//就是他的宽度
+                                                var imgHeight = imgSize.height;
+                                                var imgWidth = imgSize.width;
+                                                // $(this).attr('ng-click','changeImgSize(this)');
+                                                $(this).attr('width',imgWidth/2+'px');
+                                                $(this).attr('height',imgHeight/2+'px');
+                                                $(this).attr('onclick','changeImgSize(this)');
+                                                $(this).attr('flag','s');
+                                            }
+                                        });
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+            $scope.sendTxt='';
+        }
+
+        function trim(str){
+            return str.replace(/(^\s*)|(\s*$)/g, '');
+        }
+        $scope.mute = function(){
+            if(sessionStorage.getItem('mute')=='false'||sessionStorage.getItem('mute')==null||sessionStorage.getItem('mute')==''||sessionStorage.getItem('mute')==undefined){
+                sessionStorage.setItem('mute','true');
+                // $('#muteImg').attr('src','images/closemicrophone_new.png');
+                $('#muteBtn').attr('class','muteTrue');
+            }else{
+                sessionStorage.setItem('mute','false');
+                // $('#muteImg').attr('src','images/microphone_new.png');
+                $('#muteBtn').attr('class','muteFalse');
+            }
+        }
+
+        $scope.startRecord = function () {
+            // $('#recordBtn').attr('class','recordPress');
+            HZRecorder.get(function (rec) {
+                $scope.recorder = rec;
+                $scope.recorder.start();
+
+            });
+        }
+        function obtainRecord(){
+            var fd = new FormData();
+            var file = $scope.recorder.getBlob();
+            $('#audioView').attr('src',URL.createObjectURL(file));
+            document.getElementById('audioView').play();
+            fd.append('audioData', file);
+            var isMuted = sessionStorage.getItem('mute');
+            if(isMuted == 'false'){
+                $http({
+                    url: 'api/CirrusTwin/soundcommitvoice/'+$('#gender').val()+'/',
+                    headers: {'Content-Type':undefined},
+                    transformRequest: angular.identity,
+                    data:fd,
+                    method: 'POST'
+                }).success(function (data, header, config, status) {
+
+                    var audioUrl = angular.fromJson(data).answervoice;
+                    audioUrl =  aiLink+audioUrl.toString().split('/TEMP/')[1];
+                    $('#audio').attr('src',audioUrl);
+                    playRecord();
+                    var respStr = angular.fromJson(data);
+                    console.log(angular.toJson(respStr));
+                    if(angular.toJson(respStr).indexOf('errormessage')!=-1){
+                        var question = angular.fromJson(data).question;
+                        var preTxt = preTxtPre+question+errorSoundSuf;
+                        $("#chartContent").append(preTxt);
+                        var allHeight = $('#chartContent').height().toString().split('px')[0];
+                        $(".message").each(function(){
+                            allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                        });
+                        $('#chartContent').scrollTop(allHeight);
+                        var answer = angular.fromJson(data).errormessage;
+                        var sufTxt = sufTxtPre+answer+sufTxtSuf;
+                        $("#chartContent").append(sufTxt);
+                        var allHeight = $('#chartContent').height().toString().split('px')[0];
+                        $(".message").each(function(){
+                            allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                        });
+                        $('#chartContent').scrollTop(allHeight);
+                    }else{
+                        var question = angular.fromJson(data).question;
+                        var preTxt = preTxtPre+question+preTxtSuf;
+                        $("#chartContent").append(preTxt);
+                        var allHeight = $('#chartContent').height().toString().split('px')[0];
+                        $(".message").each(function(){
+                            allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                        });
+                        $('#chartContent').scrollTop(allHeight);
+
+                        $scope.aiResp.intend = respStr.answer;
+                        $scope.aiResp.id=respStr.parameterId;
+                        $http({
+                            url: '/manage/answerManage/getAnswerDetailByIntend/',
+                            data:$scope.aiResp,
+                            method: 'POST'
+                        }).success(function (data, header, config, status) {
+                            var answer = angular.fromJson(data).answer;
+                            if(answer==null){
+                                var sufTxt = sufTxtPre+'Please correct your input.'+sufTxtSuf;
+                                $("#chartContent").append(sufTxt);
+
+                                var allHeight = $('#chartContent').height().toString().split('px')[0];
+                                $(".message").each(function(){
+                                    allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                                });
+                                $('#chartContent').scrollTop(allHeight);
+                                return;
+                            }
+                            var detailAnswer = angular.fromJson(data).detailAnswer;
+                            var fileNames = angular.fromJson(data).fileNames;
+                            var paramId = angular.fromJson(data).id;
+                            var sufTxt = sufTxtPre+answer+sufTxtSuf;
+                            $("#chartContent").append(sufTxt);
+                            var allHeight = $('#chartContent').height().toString().split('px')[0];
+                            $(".message").each(function(){
+                                allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                            });
+                            $('#chartContent').scrollTop(allHeight);
+                            if(detailAnswer!=''&&detailAnswer!=undefined&&detailAnswer!=null){
+                                if(fileNames.length==0){
+                                    var detailTxt =detailAnswerTxtPre+detailAnswer+closeThreeDiv;
+                                    $('#detailArea').html(detailTxt);
+                                }else{
+                                    $scope.image.paramId=paramId;
+                                    $http({
+                                        url: '/manage/answerManage/loadImages/',
+                                        method: 'POST',
+                                        data:$scope.image
+                                    }).then(function (data) {
+                                        var tempHtml =detailAnswerTxtPre+detailAnswer+closeThreeDiv;
+                                        tempHtml = tempHtml.replace('<br></p>','</p><br>');
+                                        for(var i=0;i<angular.fromJson(data.data).length;i++){
+                                            var answerDetail = angular.fromJson(angular.fromJson(data.data)[i]);
+                                            var tempName=trim(answerDetail.fileName);
+                                            tempHtml = tempHtml.replace(tempName,'data:image/png;base64,'+answerDetail.fileContent);
+                                        }
+                                           $('#detailArea').html(tempHtml);
+                                        $('#detailArea').find("img").each(function(i){
+                                            if(i!=0){
+                                                var imgSize = angular.fromJson(imgRealSize($(this)));
+                                                var imgHeight = imgSize.height;
+                                                var imgWidth = imgSize.width;
+                                                $(this).attr('width',imgWidth/2+'px');
+                                                $(this).attr('height',imgHeight/2+'px');
+                                                $(this).attr('onclick','changeImgSize(this)');
+                                                $(this).attr('flag','s');
+                                            }
+                                        });
+                                    });
+
+                                }
+                            }
+                        });
+                    }
+                });
+            }else if(isMuted == 'true'){
+                $http({
+                    url: 'api/CirrusTwin/SoundCommit',
+                    headers: {'Content-Type':undefined},
+                    transformRequest: angular.identity,
+                    data:fd,
+                    method: 'POST'
+                }).success(function (data, header, config, status) {
+
+                    var respStr = angular.fromJson(data);
+                    console.log(angular.toJson(respStr));
+                    if(angular.toJson(respStr).indexOf('errormessage')!=-1){
+                        var question = angular.fromJson(data).question;
+                        var preTxt = preTxtPre+question+errorSoundSuf;
+                        $("#chartContent").append(preTxt);
+                        var allHeight = $('#chartContent').height().toString().split('px')[0];
+                        $(".message").each(function(){
+                            allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                        });
+                        $('#chartContent').scrollTop(allHeight);
+                        var answer = angular.fromJson(data).errormessage;
+                        var sufTxt = sufTxtPre+answer+sufTxtSuf;
+                        $("#chartContent").append(sufTxt);
+                        var allHeight = $('#chartContent').height().toString().split('px')[0];
+                        $(".message").each(function(){
+                            allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                        });
+                        $('#chartContent').scrollTop(allHeight);
+                    }else{
+                        var question = angular.fromJson(data).question;
+                        var preTxt = preTxtPre+question+preTxtSuf;
+                        $("#chartContent").append(preTxt);
+                        var allHeight = $('#chartContent').height().toString().split('px')[0];
+                        $(".message").each(function(){
+                            allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                        });
+                        $('#chartContent').scrollTop(allHeight);
+                         $scope.aiResp.intend = respStr.answer;
+                        $scope.aiResp.id=respStr.parameterId;
+                        //get answer details by intend
+                        $http({
+                            url: '/manage/answerManage/getAnswerDetailByIntend/',
+                            data:$scope.aiResp,
+                            method: 'POST'
+                        }).success(function (data, header, config, status) {
+                            var answer = angular.fromJson(data).answer;
+                            if(answer==null){
+                                var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">Please correct your input.'+closeThreeDiv;
+                                $("#chartContent").append(sufTxt);
+                                var allHeight = $('#chartContent').height().toString().split('px')[0];
+                                $(".message").each(function(){
+                                    allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                                });
+                                $('#chartContent').scrollTop(allHeight);
+                                return;
+                            }
+                            var detailAnswer = angular.fromJson(data).detailAnswer;
+                            var fileNames = angular.fromJson(data).fileNames;
+                            var paramId = angular.fromJson(data).id;
+
+                            var sufTxt = sufTxtPre+answer+sufTxtSuf;
+                            $("#chartContent").append(sufTxt);
+                            var allHeight = $('#chartContent').height().toString().split('px')[0];
+                            $(".message").each(function(){
+                                allHeight = parseInt(allHeight) + parseInt($(this).height().toString().split('px')[0]);
+                            });
+                            $('#chartContent').scrollTop(allHeight);
+                            if(detailAnswer!=''&&detailAnswer!=undefined&&detailAnswer!=null){
+                                if(fileNames.length==0){
+                                    var detailTxt =detailAnswerTxtPre+detailAnswer+closeThreeDiv;
+                                    $('#detailArea').html(detailTxt);
+                                }else{
+                                    $scope.image.paramId=paramId;
+                                    $http({
+                                        url: '/manage/answerManage/loadImages/',
+                                        method: 'POST',
+                                        data:$scope.image
+                                    }).then(function (data) {
+                                        var tempHtml =detailAnswerTxtPre+detailAnswer+closeThreeDiv;
+                                        tempHtml = tempHtml.replace('<br></p>','</p><br>');
+                                        for(var i=0;i<angular.fromJson(data.data).length;i++){
+                                            var answerDetail = angular.fromJson(angular.fromJson(data.data)[i]);
+                                            var tempName=trim(answerDetail.fileName);
+                                            tempHtml = tempHtml.replace(tempName,'data:image/png;base64,'+answerDetail.fileContent);
+                                        }
+                                           $('#detailArea').html(tempHtml);
+                                        $('#detailArea').find("img").each(function(i){
+                                            if(i!=0){
+                                                var imgSize = angular.fromJson(imgRealSize($(this)));//就是他的宽度
+                                                var imgHeight = imgSize.height;
+                                                var imgWidth = imgSize.width;
+                                                // $(this).attr('ng-click','changeImgSize(this)');
+                                                $(this).attr('width',imgWidth/2+'px');
+                                                $(this).attr('height',imgHeight/2+'px');
+                                                $(this).attr('onclick','changeImgSize(this)');
+                                                $(this).attr('flag','s');
+                                            }
+                                        });
+
+                                    });
+
+
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        };
+        $scope.stopRecord = function (){
+            $('#recordBtn').attr('class','recordLoss');
+            $scope.recorder.stop();
+            obtainRecord();
+        }
+
+        function playRecord(){
+            document.getElementById('audio').play();
+        };
+
+        function covertTextToVoice(){
+            $.ajax({
+                type:'POST',
+                url:getRootPath()+'/TextToSpeech.do',
+                data:{"writtenText":$("#writtentext").val()},
+                dataType: "json",
+                success: function(data){
+                    $("audio[name=audiosource]").src=data["filepath"];
+                }
+            });
+        }
+        function getRootPath(){
+            var curWwwPath=window.document.location.href;
+            var pathName=window.document.location.pathname;
+            var pos=curWwwPath.indexOf(pathName);
+            var localhostPaht=curWwwPath.substring(0,pos);
+            var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+            return(localhostPaht+projectName);
+        }
+
+
+    }]);
+});

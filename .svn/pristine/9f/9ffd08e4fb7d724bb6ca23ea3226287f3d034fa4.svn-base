@@ -1,0 +1,223 @@
+define(['angular', './px-module'], function(angular, pxModule) {
+    'use strict';
+    return pxModule.controller('ChartCtrl', ['$scope','$http','$stateParams', function($scope,$http,$stateParams) {
+        $scope.aiResp = {};
+        $scope.image = {} ;
+        if(sessionStorage.getItem('mute')=='false'||sessionStorage.getItem('mute')==null||sessionStorage.getItem('mute')==''||sessionStorage.getItem('mute')==undefined){
+            sessionStorage.setItem('mute','false');
+            $('#muteBtn').attr('class','muteFalse');
+        }else{
+            sessionStorage.setItem('mute','true');
+            $('#muteBtn').attr('class','muteTrue');
+        }
+        $scope.recorder;
+        var audio = $("audio[name='speechvalue']");
+        $scope.sendMsg= function(){
+            var preTxt = '<div class="message me"><img src="images/user00.png" width="40" height="40"><div class="bubble right bubble_primary"><div class="bubble_cont">'+ $scope.sendTxt+'</div></div></div>';
+            if($scope.sendTxt!=''){
+                $("#chartContent").append(preTxt);
+            }
+            var isMuted = sessionStorage.getItem('mute');
+            if(isMuted == 'false'){
+                $http({
+                    url: 'api/CirrusTwin/getAnswerByText2Voice/'+$scope.sendTxt,
+                    method: 'GET'
+                }).success(function (data, header, config, status) {
+                    var audioUrl = angular.fromJson(data).answervoice;
+                    audioUrl =  'https://cirrus-twin-qa.run.aws-usw02-pr.ice.predix.io/TEMP/'+audioUrl.toString().split('/TEMP/')[1]
+                    $('#resp').attr('src',audioUrl);
+                    playRecord();
+
+                    if(angular.toJson(data).indexOf('errormessage')!=-1){
+                        var answer = angular.fromJson(data).errormessage;
+                        var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+answer+'</div></div></div>';
+                        $("#chartContent").append(sufTxt);
+                    }else{
+                        var jsonObj = angular.fromJson(data);
+                        $scope.aiResp.intend = jsonObj.answer;
+                        //get answer details by intend
+                        $http({
+                            url: '/manage/answerManage/getAnswerDetailByIntend/',
+                            data:$scope.aiResp,
+                            method: 'POST'
+                        }).success(function (data, header, config, status) {
+                            var answer = angular.fromJson(data).answer;
+                            var detailAnswer = angular.fromJson(data).detailAnswer;
+                            var fileNames = angular.fromJson(data).fileNames;
+                            var paramId = angular.fromJson(data).id; 
+                            // alert(fileNames.length);
+                            var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+answer+'</div></div></div>';
+                            $("#chartContent").append(sufTxt);
+
+                            if(detailAnswer!=''&&detailAnswer!=undefined&&detailAnswer!=null){
+                                if(fileNames.length==0){
+                                    var detailTxt ='<div class="title_right">Detail Answer</div><div class="messageDetail" style="height:100%;"><img src="images/user1.png" width="40" height="40"><div class="bubble left" style="height:100%;"><div class="bubble_cont" style="height:100%;">'+detailAnswer+'</div></div></div>';
+                                    $('#detailArea').html(detailTxt);
+                                }else{
+                                    $scope.image.paramId=paramId;
+                                    $http({
+                                        url: '/manage/answerManage/loadImages/',
+                                        method: 'POST',
+                                        data:$scope.image
+                                    }).then(function (data) {
+                                        var tempHtml ='<div class="title_right">Detail Answer</div><div class="messageDetail" style="height:100%;"><img src="images/user1.png" width="40" height="40"><div class="bubble left" style="height:100%;"><div class="bubble_cont" style="height:100%;">'+detailAnswer+'</div></div></div>';
+                                        for(var i=0;i<angular.fromJson(data.data).length;i++){
+                                            var answerDetail = angular.fromJson(angular.fromJson(data.data)[i]);
+                                            var tempName=trim(answerDetail.fileName);
+                                            tempHtml = tempHtml.replace(tempName,'data:image/png;base64,'+answerDetail.fileContent);
+                                        }
+                                           $('#detailArea').html(tempHtml);
+
+                                    });
+
+                                    // var detailTxt ='<div class="title_right">Detail Answer</div><div class="messageDetail"><img src="images/user1.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+detailAnswer+'</div></div></div>';
+                                    // $('#detailArea').html(detailTxt);
+                                }
+                            }
+                        });
+                       
+                    }
+
+                });
+            }else if(isMuted =='true'){
+                $http({
+                    url: 'api/CirrusTwin/getAnswerByText/'+$scope.sendTxt,
+                    method: 'GET'
+                }).success(function (data, header, config, status) {
+                    if(angular.toJson(data).indexOf('errormessage')!=-1){
+                        var answer = angular.fromJson(data).errormessage;
+                        var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+answer+'</div></div></div>';
+                        $("#chartContent").append(sufTxt);
+                    }else{
+                        var jsonObj = angular.fromJson(data);
+                        var answer = jsonObj.answer;
+                        var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+answer+'</div></div></div>';
+                        $("#chartContent").append(sufTxt);
+                    }
+
+                });
+            }
+
+            $scope.sendTxt='';
+        }
+
+        function trim(str){
+            return str.replace(/(^\s*)|(\s*$)/g, '');
+        }
+
+        $scope.mute = function(){
+            if(sessionStorage.getItem('mute')=='false'||sessionStorage.getItem('mute')==null||sessionStorage.getItem('mute')==''||sessionStorage.getItem('mute')==undefined){
+                sessionStorage.setItem('mute','true');
+                $('#muteBtn').attr('class','muteTrue');
+            }else{
+                sessionStorage.setItem('mute','false');
+                $('#muteBtn').attr('class','muteFalse');
+            }
+        }
+
+
+
+        $scope.startRecord = function () {
+            $('#recordBtn').attr('class','recordPress');
+            HZRecorder.get(function (rec) {
+                $scope.recorder = rec;
+                $scope.recorder.start();
+            });
+        }
+        function obtainRecord(){
+            var fd = new FormData();
+            var file = $scope.recorder.getBlob();
+            fd.append('audioData', file);
+            var isMuted = sessionStorage.getItem('mute');
+            if(isMuted == 'false'){
+
+                $http({
+                    url: 'api/CirrusTwin/soundcommitvoice',
+                    headers: {'Content-Type':undefined},
+                    transformRequest: angular.identity,
+                    data:fd,
+                    method: 'POST'
+                }).success(function (data, header, config, status) {
+                    var audioUrl = angular.fromJson(data).answervoice;
+                    audioUrl =  'https://cirrus-twin-qa.run.aws-usw02-pr.ice.predix.io/TEMP/'+audioUrl.toString().split('/TEMP/')[1];
+                    $('#resp').attr('src',audioUrl);
+                    playRecord();
+                    var respStr = angular.fromJson(data);
+                    console.log(angular.toJson(respStr));
+                    if(angular.toJson(respStr).indexOf('errormessage')!=-1){
+                        var answer = angular.fromJson(data).errormessage;
+                        var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+answer+'</div></div></div>';
+                        $("#chartContent").append(sufTxt);
+                    }else{
+                        var question = angular.fromJson(data).question;
+                        var preTxt = '<div class="message me"><img src="images/user00.png" width="40" height="40"><div class="bubble right bubble_primary"><div class="bubble_cont">'+question+'</div></div></div>';
+                        $("#chartContent").append(preTxt);
+
+                        var answer = angular.fromJson(data).answer;
+                        var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+answer+'</div></div></div>';
+                        $("#chartContent").append(sufTxt);
+                    }
+                });
+            }else if(isMuted == 'true'){
+                $http({
+                    url: 'api/CirrusTwin/SoundCommit',
+                    headers: {'Content-Type':undefined},
+                    transformRequest: angular.identity,
+                    data:fd,
+
+                    method: 'POST'
+                }).success(function (data, header, config, status) {
+
+                    var respStr = angular.fromJson(data);
+                    console.log(angular.toJson(respStr));
+                    if(angular.toJson(respStr).indexOf('errormessage')!=-1){
+                        var answer = angular.fromJson(data).errormessage;
+                        var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+answer+'</div></div></div>';
+                        $("#chartContent").append(sufTxt);
+                    }else{
+                        var question = angular.fromJson(data).question;
+                        var preTxt = '<div class="message me"><img src="images/user00.png" width="40" height="40"><div class="bubble right bubble_primary"><div class="bubble_cont">'+question+'</div></div></div>';
+                        $("#chartContent").append(preTxt);
+
+                        var answer = angular.fromJson(data).answer;
+                        var sufTxt = '<div class="message"><img src="images/user11.png" width="40" height="40"><div class="bubble left"><div class="bubble_cont">'+answer+'</div></div></div>';
+                        $("#chartContent").append(sufTxt);
+                    }
+                });
+            }
+
+
+        };
+        $scope.stopRecord = function (){
+            $('#recordBtn').attr('class','recordLoss');
+            $scope.recorder.stop();
+            obtainRecord();
+        }
+
+        function playRecord(){
+            document.getElementById('resp').play();
+        };
+
+        function covertTextToVoice(){
+            $.ajax({
+                type:'POST',
+                url:getRootPath()+'/TextToSpeech.do',
+                data:{"writtenText":$("#writtentext").val()},
+                dataType: "json",
+                success: function(data){
+                    $("audio[name=audiosource]").src=data["filepath"];
+                }
+            });
+        }
+        function getRootPath(){
+            var curWwwPath=window.document.location.href;
+            var pathName=window.document.location.pathname;
+            var pos=curWwwPath.indexOf(pathName);
+            var localhostPaht=curWwwPath.substring(0,pos);
+            var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+            return(localhostPaht+projectName);
+        }
+
+
+    }]);
+});

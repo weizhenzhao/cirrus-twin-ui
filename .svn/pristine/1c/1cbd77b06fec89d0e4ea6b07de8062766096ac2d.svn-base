@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cirrus Twin</title>
+    <base href="/">
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
+    <!-- Just needed for IE -->
+    <script src="bower_components/es6-promise/dist/es6-promise.min.js"></script>
+
+    <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="polymer-loader.vulcanized.html">
+
+</head>
+
+<body unresolved class="app" data-ng-controller="MainCtrl">
+    <header role="banner">
+        <div class="viewport">
+            <h1 class="float--left">
+
+                Cirrus Twin
+            </h1>
+            <h2 class="float--right">
+                Powered by Predix
+            </h2>
+        </div>
+    </header>
+    <div class="viewport">
+        <div class="content-wrapper">
+            <px-app-nav class="navbar" nav-items="{{App.tabs}}" path-prefix="/" path-key="state">
+                <px-login class="sticky"></px-login>
+            </px-app-nav>
+            <main class="u-pt-- u-pr-- u-pl--" role="main" style="height:100%;">
+                <section role="region" ui-view></section>
+            </main>
+        </div>
+    </div>
+    <footer class="flex flex--middle" role="contentinfo">
+        <div class="viewport">
+            <nav class="flex flex--right flex--middle" role="navigation">
+                <ul class="list-inline">
+                    <li class="u-mh-">
+                        <a href="http://www.ge.com/privacy" target="_blank">Privacy</a>
+                    </li>
+                    <li class="u-mh-">
+                        <a href="http://www.ge.com/terms" target="_blank">Terms</a>
+                    </li>
+                </ul>
+                <small class="u-ml+">©2017 General Electric</small>
+            </nav>
+        </div>
+    </footer>
+</body>
+<script>
+    // IE11 workaround: We can't rely on IE's load order for scripts that are loaded outside of require.js (might
+    //  be an issue with the web components polyfill), so we wait for the HTMLImportsLoaded event to ensure our
+    //  web components' scripts have loaded.
+    window.addEventListener('HTMLImportsLoaded', function(e) {
+        var elScript = document.createElement('script');
+        elScript.setAttribute('src', 'bower_components/requirejs/require.js');
+        elScript.setAttribute('data-main', 'scripts/bootstrapper.js');
+        document.getElementsByTagName('body')[0].appendChild(elScript);
+    });
+</script>
+
+</html>

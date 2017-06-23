@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Q&A Management</title>
+<link rel="stylesheet" href="../css/showAnswer.css">
+<style type="text/css">
+    .px-data-table-cell{color:#BDCBD4!important;}
+    .style-scope aha-table{color:#BDCBD4!important;}
+    .px-pagination{color:#BDCBD4!important;}
+    input{background-color: #BDCBD4!important;}
+    /*button{background:#4c6472!important;}*/
+    .pager style-scope px-pagination{background-color: #4c6472!important;}
+    /*td{border : 1px solid #4c6472}*/
+</style>
+</head>
+
+<body>
+<link rel="import" href="components/px-data-table/px-data-table.html"/>
+<div id="loadingArea" class="rightCont" >
+  <div class="title_right" style="color:#BDCBD4;">Q&A Management</div>
+  <div class="tool_new"><button type="button" ng-click="createAnswer()" class="btn_new"> + Create Answer </button><button style="margin-left: 10px" type="button" ng-click="edit()" class="btn_new">  Edit </button><button ng-click="delete()" style="margin-left: 10px" type="button" class="btn_new"> Delete </button></div>
+    <div class="contTable">
+
+        <px-data-table id="mytable" table-data={{dummyData}} striped="true"  language="en" filterable="true" sortable="true"  selectable="true" single-selectable="true" >
+            <px-data-table-column filterable="true" name="id" ></px-data-table-column>
+            <px-data-table-column filterable="true" name="intend" ></px-data-table-column>
+            <px-data-table-column  filterable="true" name="answer" ></px-data-table-column>
+        </px-data-table>
+
+    </div>
+
+
+</div>
+</body>
+</html>

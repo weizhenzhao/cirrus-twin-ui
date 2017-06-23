@@ -1,0 +1,311 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chart</title>
+
+<link rel="stylesheet" href="../css/chart_new.css">
+<style type="text/css">
+    .mainChat{background-color:#1C2934!important;margin-top: 0px;margin-left:0px;width:100%}
+    main{background-color:#1C2934!important;}
+    .chatList{}
+
+    .title_chat label{color: #fff!important;}
+
+    .sendMesg{background-color: #BDCBD4}
+    .sendTxtArea{background-color: #1c2934;border:1px solid #4c6472;}
+    .detailAnswer{}
+    #canvas{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+    }
+    .msgFont{font-size: 15px}
+    .sendTxtArea{font-size: 15px}
+    .qrcode{
+
+        color: #fff;
+        font-size: 12px;
+        border-radius: 3px;
+        padding: 10px 12%;
+        overflow: hidden;
+        position: absolute;
+        bottom:6px;
+        margin: -4.5% auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .qrcode table{text-align:center;color:#fff;font-size:12px;}
+    .phoneos{
+        position: relative;
+        left:6%;
+        bottom:39%;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+       $('#fontChart').height(parseInt(document.documentElement.clientHeight)-100+'px');
+    });
+    function changeImgSize(img) {
+            var flag=$(img).attr('flag');
+            if(flag=='s'){
+                $(img).attr('flag','l');
+                $(img).attr('width',$(img).attr('width').split('px')[0]*2+'px');
+                $(img).attr('height',$(img).attr('height').split('px')[0]*2+'px');
+            }else if(flag=='l'){
+                $(img).attr('flag','s');
+                $(img).attr('width',$(img).attr('width').split('px')[0]/2+'px');
+                $(img).attr('height',$(img).attr('height').split('px')[0]/2+'px');
+            }
+
+        }
+
+</script>
+</head>
+
+<body>
+<div class="mainChat" id='fontChart'>
+    <audio   id = "audio" type="hidden" name="speechvalue"></audio>
+    <audio   id = "audioView"  type="hidden" name="speechvalue"></audio>
+    <div class="chatArea" id="chartArea" style="color:#666">
+        <div class="title_chat">
+           <label style="margin-top:8px;line-height:0px;"><img src="images/user_new.png" width="16" height="16"></label>
+           <label style="margin-top:-3px;">User A</label>
+        </div>
+        <div class="chatList" id="chartContent">
+           <div class="message" style="padding:0;margin-top: -15px;">
+
+               <table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;">
+                  <tr>
+                     <td style="vertical-align:middle;width:53px;"><img  src="images/robot.png"></td>
+                     <td class="msgFont" style="padding-left:15px;">Hello</td>
+                  </tr>
+               </table>
+           </div>
+
+           <!--<div class="message">-->
+                <!--<table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;">-->
+                  <!--<tr>-->
+                     <!--<td style="padding-left:15px;">hey,yes,i do need help.I'm having trouble registering my new account.</td>-->
+                     <!--<td style="vertical-align:middle;"><img src="images/man2.png"></td>-->
+                  <!--</tr>-->
+               <!--</table>-->
+           <!--</div>-->
+
+        </div>
+
+        <div class="tools">
+            <ul style="width:100%;margin-top: 0.3%;">
+                <audio type="hidden" name="speechvalue"></audio>
+               <li id="recordBtn" class="recordLoss" style="color:white;margin-top:6px" ><a id="recordCtrl" onclick="recordStart()" title="Record"  href="#" ><img id="recordImg" title="mute" src="images/voice-off.png" width="41" height="20"></a></li>
+               <li id="muteBtn" class="muteFalse" style="margin-top:0px"><a ng-click="mute()" href="#" class="mute"><img id="muteImg" title="mute" src="images/closemicrophone_new.png" width="31" height="31"></a></li>
+               <li style="margin-top:1px"><a ng-click="fontLarger()" href="#"><img src="images/fontsize-b_new.png" width="30" height="30" title="fontLarger"></a></li>
+               <li style="margin-top:1px;margin-right:0;"><a ng-click="fontSmaller()" href="#"><img src="images/fontsize-s_new.png" width="30" height="30" title="fontSmaller"></a></li>
+                <li style="margin-top:6px;margin-left:5%;"><select style="background:#4c6472!important;border-radius:3px;color:#fff!important;font-size:12px;border:1px solid #fff!important;height:22px;width:103px;" id="gender" name="">
+                    <option value="male" selected="selected">BenjaminRUS</option>
+                    <option value="female">ZiraRUS</option>
+                </select></li>
+            </ul>
+        </div>
+        <div class="voice" style="text-align:center;"> <canvas id="canvas"></canvas></div>
+        <div class="sendMesg" >
+          <textarea id="phraseDiv" ng-keypress="keyEvent()" class="sendTxtArea"  ></textarea>
+          <button id="dummySend" type="button" ng-click="sendMsg()">Send</button>
+        </div>
+        </div>
+    <div id="detailArea" class="detailAnswer" style="height:90%;">
+        <div class="title_right"></div>
+        <div class="messageDetail"><img src="images/robot.png" width="40" height="40">
+            <div class="bubble left" style="overflow: auto">
+                <div class="bubble_cont" style="color:#ddd;font-size:15px ;">
+                    Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!
+                    Hello!!Hello!!      llo!!Hello!!Hello!!Hello!!
+                    Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!
+                    Hello!!He      qweHello!!Hello!!
+                    Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!Hello!!
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <input id="key"  type="hidden" size="40" value="fd0590e32036418db5df8c36e5d7cde3">
+
+    <script src="../components/distrib/speech.browser.sdk-min.js"></script>
+    <script>
+
+        function Initialize(onComplete) {
+            require(["Speech.Browser.Sdk"], function(SDK) {
+                onComplete(SDK);
+            });
+        }
+
+        function RecognizerSetup(SDK, recognitionMode, language, format, subscriptionKey) {
+            var recognizerConfig = new SDK.RecognizerConfig(
+                new SDK.SpeechConfig(
+                    new SDK.Context(
+                        new SDK.OS(navigator.userAgent, "Browser", null),
+                        new SDK.Device("SpeechSample", "SpeechSample", "1.0.00000"))),
+                recognitionMode, // SDK.RecognitionMode.Interactive  (Options - Interactive/Conversation/Dictation>)
+                language, // Supported laguages are specific to each recognition mode. Refer to docs.
+                format); // SDK.SpeechResultFormat.Simple (Options - Simple/Detailed)
+
+            // Alternatively use SDK.CognitiveTokenAuthentication(fetchCallback, fetchOnExpiryCallback) for token auth
+            var authentication = new SDK.CognitiveSubscriptionKeyAuthentication(subscriptionKey);
+
+            return SDK.CreateRecognizer(recognizerConfig, authentication);
+        }
+
+        // Start the recognition
+        function RecognizerStart(SDK, recognizer) {
+            recognizer.Recognize((event) => {
+                /*
+                 Alternative syntax for typescript devs.
+                 if (event instanceof SDK.RecognitionTriggeredEvent)
+                 */
+                switch (event.Name) {
+            case "RecognitionTriggeredEvent" :
+                UpdateStatus("Initializing");
+                break;
+            case "ListeningStartedEvent" :
+                UpdateStatus("Listening");
+                break;
+            case "RecognitionStartedEvent" :
+                UpdateStatus("Listening_Recognizing");
+                break;
+            case "SpeechStartDetectedEvent" :
+                UpdateStatus("Listening_DetectedSpeech_Recognizing");
+                console.log(JSON.stringify(event.Result)); // check console for other information in result
+                break;
+            case "SpeechHypothesisEvent" :
+                UpdateRecognizedHypothesis(event.Result.Text);
+                console.log(JSON.stringify(event.Result)); // check console for other information in result
+                break;
+            case "SpeechEndDetectedEvent" :
+                OnSpeechEndDetected();
+                UpdateStatus("Processing_Adding_Final_Touches");
+                console.log(JSON.stringify(event.Result)); // check console for other information in result
+                break;
+            case "SpeechSimplePhraseEvent" :
+                UpdateRecognizedPhrase(JSON.stringify(event.Result, null, 3));
+                break;
+            case "SpeechDetailedPhraseEvent" :
+                UpdateRecognizedPhrase(JSON.stringify(event.Result, null, 3));
+                break;
+            case "RecognitionEndedEvent" :
+                OnComplete();
+                UpdateStatus("Idle");
+                console.log(JSON.stringify(event)); // Debug information
+                break;
+            }
+        })
+        .On(() => {
+                // The request succeeded. Nothing to do here.
+            },
+                (error) => {
+                console.error(error);
+            });
+        }
+
+        // Stop the Recognition.
+        function RecognizerStop(SDK, recognizer) {
+            // recognizer.AudioSource.Detach(audioNodeId) can be also used here. (audioNodeId is part of ListeningStartedEvent)
+            recognizer.AudioSource.TurnOff();
+        }
+
+
+    </script>
+
+    <!-- Browser Hooks -->
+    <script>
+        var recorder;
+        var recordFlg='off';
+        var startBtn,  phraseDiv,  key;
+        var SDK;
+        var recognizer;
+        var previousSubscriptionKey;
+
+        startBtn = document.getElementById("recordCtrl");
+        phraseDiv = document.getElementById("phraseDiv");
+        key = document.getElementById("key");
+        Initialize(function (speechSdk) {
+            SDK = speechSdk;
+        });
+        function recordStart(){
+            if(recordFlg=='off'){
+                recordFlg='on';
+                $('#recordImg').attr('src','images/voice-on.png');
+                startRecord();
+
+                if (!recognizer || previousSubscriptionKey != key.value) {
+                    previousSubscriptionKey = key.value;
+                    Setup();
+                }
+
+                phraseDiv.innerHTML = "";
+                RecognizerStart(SDK, recognizer);
+            }
+//            else if(recordFlg=='on'){
+//                recordFlg='off';
+//                $('#recordImg').attr('src','images/voice-off.png');
+//                stopRecord();
+//                RecognizerStop(SDK);
+//            }
+
+        }
+
+
+        function Setup() {
+            recognizer = RecognizerSetup(SDK, SDK.RecognitionMode.Interactive,'en-US', SDK.SpeechResultFormat['Simple'], key.value);
+        }
+
+        function UpdateStatus(status) {
+        }
+
+        function UpdateRecognizedHypothesis(text) {
+            $("#phraseDiv").val(text);
+        }
+
+        function OnSpeechEndDetected() {
+        }
+
+        function UpdateRecognizedPhrase(json) {
+        }
+
+        function OnComplete() {
+            recordFlg='off';
+            $('#recordImg').attr('src','images/voice-off.png');
+            stopRecord();
+        }
+        function startRecord() {
+            HZRecorder.get(function (rec) {
+                recorder = rec;
+                recorder.start();
+
+            });
+        }
+
+        function stopRecord  (){
+            recordFlg='off';
+            recorder.stop();
+            obtainRecord();
+            if($("#phraseDiv").val()!=''&&$("#phraseDiv").val()!=null){
+                $('#dummySend').click();
+            }
+
+        }
+
+        function obtainRecord(){
+            $('#audioView').attr('src',URL.createObjectURL(recorder.getBlob()));
+            document.getElementById('audioView').play();
+        }
+
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+---
+applications:
+  - name: cirrusTwin-ui
+    buildpack: predix_openresty_buildpack
+    path: dist
+    memory: 64M
+    stack: cflinuxfs2
+    services:
+            - redis1 # change this to your redis service instance name
+    env:
+      UAA_SERVER_URL: https://879c5fe8-0650-428e-b529-40d4f3e3ae43.predix-uaa.run.aws-usw02-pr.ice.predix.io # change to your UAA instance url
+      REDIS: redis-13

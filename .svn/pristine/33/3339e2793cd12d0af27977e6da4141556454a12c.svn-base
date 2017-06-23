@@ -1,0 +1,67 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chart</title>
+
+ <link rel="stylesheet" href="../css/chart.css">
+    <link rel="import" href="../bower_components/px-dark-theme/px-dark-theme-styles.html"/>
+    <style include="px-dark-theme-styles"></style>
+<style type="text/css">
+
+
+</style>
+</head>
+
+<body>
+<div class="mainChat">
+    <audio id = "resp" type="hidden" name="speechvalue"></audio>
+    <div class="chatArea">
+        <div class="title_chat">
+           <label style="margin-top:4px;line-height:0px;"><img src="images/user1.png"></label>
+           <label>User A</label>
+        </div>
+        <div class="chatList" id="chartContent">
+           <div class="message">
+               <img src="images/user11.png" width="40" height="40">
+               <div class="bubble left">
+                  <div class="bubble_cont">Hello!</div>
+               </div>
+           </div>
+           <!--<div class="message me">-->
+               <!--<img src="images/user00.png" width="40" height="40">-->
+               <!--<div class="bubble right bubble_primary">-->
+                  <!--<div class="bubble_cont">Hello world! Hello world! Hello world!</div>-->
+               <!--</div>-->
+           <!--</div>-->
+
+
+        </div>
+
+        <div class="tools">
+            <ul>
+                <audio type="hidden" name="speechvalue"></audio>
+               <li id="recordBtn" class="recordLoss"><a ng-mousedown="startRecord()" ng-mouseup="stopRecord()" href="#"><img src="images/microphone.png" width="32" height="32"></a></li>
+               <li id="muteBtn" class="muteFalse"><a ng-click="mute()" href="#"><img src="images/closemicrophone.png" width="32" height="32"></a></li>
+               <li><a href="#"><img src="images/fontsize-b.png" width="28" height="28"></a></li>
+               <li style="margin-right:0;"><a href=""><img src="images/fontsize-s.png" width="28" height="28"></a></li>
+            </ul>
+        </div>
+        <div class="voice" style="text-align:center;"><img src="images/audio.png" width="90%" style="vertical-align:middle"></div>
+        <div class="sendMesg">
+          <textarea  ng-model="sendTxt"></textarea>
+          <button type="button" ng-click="sendMsg()">Send</button>
+        </div>
+    </div>
+    <div id='detailArea' class="detailAnswer" style="height:100%;">
+        <!--<div class="title_right">Detail Answer</div>-->
+        <!--<div class="messageDetail">-->
+               <!--<img src="images/user1.png" width="40" height="40">-->
+               <!--<div class="bubble left">-->
+                  <!--<div class="bubble_cont">Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!</div>-->
+               <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+</body>
+</html>

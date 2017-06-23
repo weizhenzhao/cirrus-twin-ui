@@ -1,0 +1,156 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chart</title>
+
+<link rel="stylesheet" href="../css/chart_new.css">
+<style type="text/css">
+/*body{background:#1c2934;}*/
+    .mainChat{background-color:#1C2934!important;margin-top: 0px;margin-left:0px;width:100%}
+    main{background-color:#1C2934!important;}
+    .chatList{}
+
+    .title_chat label{color: #fff!important;}
+
+    .sendMesg{background-color: #BDCBD4}
+    .sendTxtArea{background-color: #1c2934;border:1px solid #4c6472;}
+    .detailAnswer{}
+    #canvas{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+    }
+    .msgFont{font-size: 15px}
+    .sendTxtArea{font-size: 15px}
+    .qrcode{
+
+        color: #fff;
+        font-size: 12px;
+        border-radius: 3px;
+        padding: 10px 12%;
+        overflow: hidden;
+        position: absolute;
+        bottom:6px;
+        margin: -4.5% auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .qrcode table{text-align:center;color:#fff;font-size:12px;}
+    .phoneos{
+        position: relative;
+        left:6%;
+        bottom:39%;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+//        alert(document.documentElement.clientHeight);
+       $('#fontChart').height(parseInt(document.documentElement.clientHeight-100)+'px');
+    });
+    function changeImgSize(img) {
+            var flag=$(img).attr('flag');
+            if(flag=='s'){
+                $(img).attr('flag','l');
+                $(img).attr('width',$(img).attr('width').split('px')[0]*2+'px');
+                $(img).attr('height',$(img).attr('height').split('px')[0]*2+'px');
+            }else if(flag=='l'){
+                $(img).attr('flag','s');
+                $(img).attr('width',$(img).attr('width').split('px')[0]/2+'px');
+                $(img).attr('height',$(img).attr('height').split('px')[0]/2+'px');
+            }
+
+        }
+
+</script>
+</head>
+
+<body>
+<div class="mainChat" id='fontChart'>
+    <audio   id = "audio" type="hidden" name="speechvalue"></audio>
+    <audio   id = "audioView"  type="hidden" name="speechvalue"></audio>
+    <div class="chatArea" id="chartArea" style="color:#666">
+        <div class="title_chat">
+           <label style="margin-top:8px;line-height:0px;"><img src="images/user_new.png" width="16" height="16"></label>
+           <label style="margin-top:-3px;">User A</label>
+        </div>
+        <div class="chatList" id="chartContent">
+           <div class="message" style="padding:0;margin-top: -15px;">
+
+               <table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;">
+                  <tr>
+                     <td style="vertical-align:middle;width:53px;"><img  src="images/robot.png"></td>
+                     <td class="msgFont" style="padding-left:15px;">Hello</td>
+                  </tr>
+               </table>
+           </div>
+
+           <!--<div class="message">-->
+                <!--<table style="height:70px;border-bottom:1px solid #4c6472;color:#fff;font-size:14px;width:100%;">-->
+                  <!--<tr>-->
+                     <!--<td style="padding-left:15px;">hey,yes,i do need help.I'm having trouble registering my new account.</td>-->
+                     <!--<td style="vertical-align:middle;"><img src="images/man2.png"></td>-->
+                  <!--</tr>-->
+               <!--</table>-->
+           <!--</div>-->
+
+        </div>
+
+        <div class="tools">
+            <ul style="width:100%;margin-top: 0.3%;">
+                <audio type="hidden" name="speechvalue"></audio>
+               <li id="recordBtn" class="recordLoss" style="color:white;margin-top:1.15%" ><a id="recordCtrl" title="Record" ng-click="manageRecord()" href="#" ><img id="recordImg" title="mute" src="images/voice-off.png" width="41" height="20"></a></li>
+               <li id="muteBtn" class="muteFalse" style="margin-top:0.2%"><a ng-click="mute()" href="#" class="mute"><img id="muteImg" title="mute" src="images/closemicrophone_new.png" width="32" height="32"></a></li>
+               <li style="margin-top:0.2%"><a ng-click="fontLarger()" href="#"><img src="images/fontsize-b_new.png" width="30" height="30" title="fontLarger"></a></li>
+               <li style="margin-top:0.2%;margin-right:0;"><a ng-click="fontSmaller()" href="#"><img src="images/fontsize-s_new.png" width="30" height="30" title="fontSmaller"></a></li>
+                <li style="margin-top:1.1%;margin-left:5%;"><select style="background:#4c6472!important;border-radius:3px;color:#fff!important;font-size:12px;border:1px solid #fff!important;height:22px;width:88px;" id="gender" name="">
+                    <option value="male" selected="selected">AI Male</option>
+                    <option value="female">AI Female</option>
+                </select></li>
+            </ul>
+        </div>
+        <div class="voice" style="text-align:center;"> <canvas id="canvas"></canvas></div>
+        <div class="sendMesg" >
+          <textarea ng-keypress="keyEvent()" class="sendTxtArea"  ng-model="sendTxt"></textarea>
+          <button type="button" ng-click="sendMsg()">Send</button>
+        </div>
+        <div class="qrcode_new">
+           <div class="qrcode">
+            <table style="margin-left:-15%;" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <!--<td rowspan="2" style="width:40%">Scan the QR Code <br>to like us</td>-->
+                    <td style="width:70px;height:70px;"><span><img src="../images/qrpic_1.png" width="70" height="70"></span><span class="phoneos">Andriod</span></td>
+                    <!--<td style="width:60px"></td>-->
+                    <td style="width:70px;height:70px;"><span><img src="../images/qrpic_1.png" width="70" height="70"></span><span class="phoneos">IOS</span></td>
+                    <!--<td style="width:60px"></td>-->
+                </tr>
+                <!--<tr>-->
+                    <!--<td>IOS</td>-->
+                    <!--<td>Andriod</td>-->
+                <!--</tr>-->
+            </table>
+        </div>
+        </div>
+    </div>
+    <div id="detailArea" class="detailAnswer" style="height:90%;">
+      <!--<div class="title_right">Detail Answer</div>-->
+        <!--<div class="messageDetail">-->
+               <!--<img src="images/man.png" width="40" height="40">-->
+              <!--<div class="bubble left">-->
+                 <!--<div class="bubble_cont" style="color:#ddd">Hello world! Hello world! Hello worHello world! Hello world! Hello worHello world! Hello world! Hello worHello world! Hello world! Hello worHello world! Hello world! Hello worHello world! Hello world! Hello worHello world! Hello world! Hello wor-->
+                     <!--Hello world! Hello world! Hello wor-->
+                     <!--Hello world! Hello world! Hello wor-->
+                     <!--Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!</div>-->
+               <!--</div>-->
+        <!--</div>-->
+    </div>
+
+</div>
+</body>
+</html>

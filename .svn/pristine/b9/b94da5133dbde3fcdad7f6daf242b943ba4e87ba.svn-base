@@ -1,0 +1,66 @@
+/**
+ * Router Config
+ * This is the router definition that defines all application routes.
+ */
+define(['angular', 'angular-ui-router'], function(angular) {
+    'use strict';
+    return angular.module('app.routes', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+        //Turn on or off HTML5 mode which uses the # hash
+        $locationProvider.html5Mode(true).hashPrefix('!');
+
+        /**
+         * Router paths
+         * This is where the name of the route is matched to the controller and view template.
+         */
+        $stateProvider
+            .state('secure', {
+                template: '<ui-view/>',
+                abstract: true,
+                resolve: {
+                    authenticated: ['$q', 'PredixUserService', function ($q, predixUserService) {
+                        var deferred = $q.defer();
+                        predixUserService.isAuthenticated().then(function(userInfo){
+                            deferred.resolve(userInfo);
+                        }, function(){
+                            deferred.reject({code: 'UNAUTHORIZED'});
+                        });
+                        return deferred.promise;
+                    }]
+                }
+            })
+            .state('showAnswer', {
+            parent: 'secure',
+            url: '/showAnswer',
+            templateUrl: 'views/showAnswer.html',
+            controller: 'ShowAnswerCtrl'
+           })
+            .state('createAnswer', {
+                parent: 'secure',
+                url: '/createAnswer',
+                templateUrl: 'views/createAnswer.html',
+                controller: 'CreateAnswerCtrl'
+            })
+            .state('editAnswer', {
+                params:{"paramId":null},
+                parent: 'secure',
+                url: '/editAnswer',
+                templateUrl: 'views/editAnswer.html',
+                controller: 'EditAnswerCtrl'
+            })
+            .state('chart', {
+                parent: 'secure',
+                url: '/chart',
+                templateUrl: 'views/chart.html',
+                controller: 'ChartCtrl'
+            })
+            ;
+
+        $urlRouterProvider.otherwise(function ($injector) {
+            var $state = $injector.get('$state');
+            document.querySelector('px-app-nav').markSelected('/chart');
+            $state.go('chart');
+        });
+
+    }]);
+});

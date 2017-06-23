@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Creat a new Q&A Management</title>
+<link rel="stylesheet" href="../css/createAnswer.css">
+    <link rel="stylesheet" type="text/css" href="../components/wangEditor/css/wangEditor.min.css">
+    <style type="text/css">
+        /*#editor-trigger {*/
+            /*height: 400px!important;*/
+            /*!*max-height: 500px;*!*/
+        /*}*/
+        .wangEditor-txt{
+            height: 200px!important;
+        }
+        /*.container {*/
+            /*width: 100%;*/
+            /*margin: 0 auto;*/
+            /*position: relative;*/
+        /*}*/
+       .wangEditor-menu-container  a:link {
+            color: #666!important; }
+        .wangEditor-menu-container  a:visited {
+            color: #666!important; }
+    </style>
+</head>
+
+<body>
+<div class="rightCont">
+  <div class="title_right">Creat a new Q&A</div>
+    <div class="contTable table_newqa" style="margin-top:20px;">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="15%">Question:</td>
+    <td width="85%"><input type="text" class="input_newqa" ng-model = "answer.question"></td>
+  </tr>
+  <input id="answerId" type="hidden" class="input_newqa" >
+  <!--<tr>-->
+    <!--<td>ID:</td>-->
+    <!--<td><input type="text" class="input_newqa" value="{{answerId}}"></td>-->
+  <!--</tr>-->
+  <tr>
+    <td>Answer:</td>
+    <td><input type="text" class="input_newqa" ng-model="answer.answer"></td>
+  </tr>
+  <tr>
+    <td style="vertical-align:top;">Detail Answer:</td>
+    <!--<td><textarea class="input_newqa"></textarea></td>-->
+      <td style="height:250px;">
+
+          <div id="editor-container" class="container">
+              <!-- <div id="editor-trigger">
+                  <p>请输入内容...</p>
+              </div> -->
+              <textarea id="editor-trigger" ng-model="answer.detailAnswer" style="display:none;">
+
+        </textarea>
+          </div>
+
+
+      </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><button ng-click="save()" type="button" class="btn_save">Save</button><button ng-click="cancel()" style="margin-left: 16px;" type="button" class="btn_save">Cancel</button></td>
+  </tr>
+</table>
+
+    </div>
+</div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

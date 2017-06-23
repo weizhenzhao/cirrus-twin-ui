@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="c1e0f91e-a8ba-4fc0-a1e2-e347cee2723d" name="Default" comment="" />
+    <ignored path="predix-seed.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="predix-seed" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="chart.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/chart.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chart-controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/modules/chart-controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="189" column="41" lean-forward="false" selection-start-line="189" selection-start-column="41" selection-end-line="189" selection-end-column="41" />
+              <folding>
+                <marker date="1495676360480" expanded="true" signature="4028:4040" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="4125:4136" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="4170:4182" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="5048:5059" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="5114:5126" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="5211:5237" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="5271:5294" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="9035:9046" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="9101:9113" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="9198:9224" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="9258:9281" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="9883:9894" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="9949:9961" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="10046:10072" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="10106:10129" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="16039:16050" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="16105:16117" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="16202:16228" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="16262:16285" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="16887:16898" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="16953:16965" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="17050:17076" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="17110:17133" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="21244:21255" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="21310:21322" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="21407:21433" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="21467:21490" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="22092:22103" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="22158:22170" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="22255:22281" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="22315:22338" ph="..." />
+                <marker date="1495676360480" expanded="true" signature="22337:22338" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="copy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tasks/options/copy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="33" lean-forward="false" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HZRecord.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/components/recorder/HZRecord.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="67" lean-forward="false" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>font</find>
+      <find>cell--value</find>
+      <find>px-data-table-cell</find>
+      <find>background</find>
+      <find>tool_new</find>
+      <find>d8e0e5</find>
+      <find>d8e0e54c6472</find>
+      <find>4C6472</find>
+      <find>96a8b2</find>
+      <find>stripe</find>
+      <find>e2e8ed</find>
+      <find>E2E8ED</find>
+      <find>btn_new</find>
+      <find>0a9ec1</find>
+      <find>main</find>
+      <find>1px 6px</find>
+      <find>chatArea</find>
+      <find>voice</find>
+      <find>bubble_cont</find>
+      <find>bubble</find>
+      <find>button</find>
+      <find>&lt;div class=&quot;title_right&quot;&gt;Detail Answer&lt;/div&gt;&lt;div class=&quot;messageDetail&quot; style=&quot;height:100%;&quot;&gt;&lt;img src=&quot;images/user1.png&quot; width=&quot;40&quot; height=&quot;40&quot;&gt;&lt;div class=&quot;bubble left&quot; style=&quot;height:100%;&quot;&gt;&lt;div class=&quot;bubble_cont&quot; style=&quot;height:100%;&quot;&gt;</find>
+      <find>buble</find>
+      <find>sendm</find>
+      <find>alert</find>
+      <find>b2e281</find>
+      <find>$scope.recorder</find>
+      <find>getUsw</find>
+      <find>HZRecorder.get</find>
+      <find>startRecord</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>class=&quot;noWarning&quot;</replace>
+      <replace>{{&quot;FEEDRATE&quot;|translate}}</replace>
+      <replace>translate}}&lt;</replace>
+      <replace>ID</replace>
+      <replace>answer</replace>
+      <replace>4c6472</replace>
+      <replace>&lt;div class=&quot;title_right&quot; style=&quot;color:#666;&quot;&gt;Detail Answer&lt;/div&gt;&lt;div class=&quot;messageDetail&quot; style=&quot;height:100%;&quot;&gt;&lt;img src=&quot;images/user1.png&quot; width=&quot;40&quot; height=&quot;40&quot;&gt;&lt;div class=&quot;bubble left&quot; style=&quot;height:70%;margin-left:10%&quot;&gt;&lt;div class=&quot;bubble_cont&quot; style=&quot;height:100%;color:#666;&quot;&gt;'+detailAnswer+'&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Pactera\Workspace\ccm\ccm-ui</dir>
+      <dir>C:\Pactera\Workspace\ccm\ccm-ui\public\bower_components\px-theme</dir>
+      <dir>C:\Pactera\Workspace\twin\cirrusTwin-ui\public\components\ueditor</dir>
+      <dir>C:\Pactera\Workspace\twin\cirrusTwin-ui\tasks</dir>
+      <dir>C:\Pactera\Workspace\twin\cirrusTwin-ui</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/public/i18n/cn.json" />
+        <option value="$PROJECT_DIR$/public/scripts/controller/history-controller.js" />
+        <option value="$PROJECT_DIR$/public/scripts/controller/dashboard-controller.js" />
+        <option value="$PROJECT_DIR$/public/views/homepage.html" />
+        <option value="$PROJECT_DIR$/public/views/history.html" />
+        <option value="$PROJECT_DIR$/public/css/normal.css" />
+        <option value="$PROJECT_DIR$/public/components/px-data-table/px-data-table.html" />
+        <option value="$PROJECT_DIR$/public/components/px-data-table/px-pagination.html" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/public/components/test.js" />
+        <option value="$PROJECT_DIR$/public/components/ueditor/ueditor.config.js" />
+        <option value="$PROJECT_DIR$/public/components/ueditor/third-party/zeroclipboard/ZeroClipboard.js" />
+        <option value="$PROJECT_DIR$/public/components/ueditor/dialogs/image/image.js" />
+        <option value="$PROJECT_DIR$/public/components/ueditor/ueditor.all.js" />
+        <option value="$PROJECT_DIR$/public/components/wangEditor/css/wangEditor.less" />
+        <option value="$PROJECT_DIR$/public/components/wangEditor/css/wangEditor.css" />
+        <option value="$PROJECT_DIR$/public/scripts/config.js" />
+        <option value="$PROJECT_DIR$/public/components/wangEditor/js/wangEditor.js" />
+        <option value="$PROJECT_DIR$/public/scripts/routes.js" />
+        <option value="$PROJECT_DIR$/public/scripts/modules/main.js" />
+        <option value="$PROJECT_DIR$/manifest.yml" />
+        <option value="$PROJECT_DIR$/tasks/dist.js" />
+        <option value="$PROJECT_DIR$/dist/nginx.conf" />
+        <option value="$PROJECT_DIR$/dist/nginx_local.conf" />
+        <option value="$PROJECT_DIR$/tasks/options/connect.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app.js" />
+        <option value="$PROJECT_DIR$/tasks/options/copy.js" />
+        <option value="$PROJECT_DIR$/public/scripts/modules/createAnswer-controller.js" />
+        <option value="$PROJECT_DIR$/public/scripts/modules/showAnswer-controller.js" />
+        <option value="$PROJECT_DIR$/public/scripts/modules/editAnswer-controller.js" />
+        <option value="$PROJECT_DIR$/public/bower_components/px-dark-theme/px-dark-theme-styles.html" />
+        <option value="$PROJECT_DIR$/public/polymer-loader.vulcanized.html" />
+        <option value="$PROJECT_DIR$/public/bower_components/px-theme/px-app.html" />
+        <option value="$PROJECT_DIR$/public/bower_components/px-theme/px-theme.html" />
+        <option value="$PROJECT_DIR$/public/polymer-loader.html" />
+        <option value="$PROJECT_DIR$/public/bower_components/px-app-nav/px-app-nav.html" />
+        <option value="$PROJECT_DIR$/public/bower_components/px-login/px-login.html" />
+        <option value="$PROJECT_DIR$/public/css/showAnswer.css" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/components/px-data-table/css/px-data-table-cell-styles.html" />
+        <option value="$PROJECT_DIR$/public/components/px-data-table/css/px-data-table-styles.html" />
+        <option value="$PROJECT_DIR$/public/components/px-data-table/css/aha-table-styles.html" />
+        <option value="$PROJECT_DIR$/public/css/createAnswer.css" />
+        <option value="$PROJECT_DIR$/public/views/editAnswer.html" />
+        <option value="$PROJECT_DIR$/public/views/showAnswer.html" />
+        <option value="$PROJECT_DIR$/public/views/createAnswer.html" />
+        <option value="$PROJECT_DIR$/public/css/chart.css" />
+        <option value="$PROJECT_DIR$/public/views/chart.html" />
+        <option value="$PROJECT_DIR$/public/components/vudio.js-master/vudio.js-master/demo.html" />
+        <option value="$PROJECT_DIR$/public/scripts/modules/chart-controller.js" />
+        <option value="$PROJECT_DIR$/public/components/recorder/HZRecord.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+    <handled-path value="$PROJECT_DIR$/public/bower_components/px-dark-theme/node_modules" />
+    <handled-path value="$PROJECT_DIR$/public/bower_components/requirejs/tests/packagesNode/node_modules" />
+    <handled-path value="$PROJECT_DIR$/public/bower_components/requirejs/tests/packagesNodeAdapter/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1456" />
+    <option name="height" value="886" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="options" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vudio.js-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cirrusTwin-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ccm/ccm-ui-admin" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="editor.config.accepted" value="true" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Pactera\Workspace\twin\cirrusTwin-ui\public\components" />
+      <recent name="C:\Pactera\Workspace\twin\cirrusTwin-ui\public\components\vudio.js-master\vudio.js-master\demo_src" />
+      <recent name="C:\Pactera\Workspace\twin\cirrusTwin-ui\public\scripts\modules" />
+      <recent name="C:\Pactera\Workspace\twin\cirrusTwin-ui\public\components\wangEditor\js" />
+      <recent name="C:\Pactera\Workspace\twin\cirrusTwin-ui\public\components\wangEditor" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Pactera\Workspace\twin\cirrusTwin-ui\public\components" />
+      <recent name="C:\Pactera\Workspace\ccm\ccm-ui\public" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.demo.html">
+    <configuration default="false" name="demo.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/cirrusTwin-ui/public/components/vudio.js-master/vudio.js-master/demo.html">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.demo.html" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.demo.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\p0070338\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1e0f91e-a8ba-4fc0-a1e2-e347cee2723d" name="Default" comment="" />
+      <created>1484552671507</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1484552671507</updated>
+      <workItem from="1484552672792" duration="1314000" />
+      <workItem from="1484555112505" duration="1876000" />
+      <workItem from="1484620714423" duration="6821000" />
+      <workItem from="1484637378552" duration="7066000" />
+      <workItem from="1484702085586" duration="9647000" />
+      <workItem from="1484721660209" duration="4275000" />
+      <workItem from="1484788318049" duration="5947000" />
+      <workItem from="1484874473737" duration="14737000" />
+      <workItem from="1484992744795" duration="5195000" />
+      <workItem from="1485046839815" duration="22046000" />
+      <workItem from="1485081900344" duration="3213000" />
+      <workItem from="1485132727963" duration="9990000" />
+      <workItem from="1485148587128" duration="3625000" />
+      <workItem from="1485152299893" duration="7837000" />
+      <workItem from="1486084524012" duration="250000" />
+      <workItem from="1486084789571" duration="3554000" />
+      <workItem from="1486176982726" duration="10969000" />
+      <workItem from="1486203704755" duration="1467000" />
+      <workItem from="1486342252533" duration="4119000" />
+      <workItem from="1486358866593" duration="14238000" />
+      <workItem from="1486434397029" duration="13539000" />
+      <workItem from="1486516204188" duration="8436000" />
+      <workItem from="1486602946439" duration="23106000" />
+      <workItem from="1486688887063" duration="9482000" />
+      <workItem from="1486715471113" duration="1552000" />
+      <workItem from="1493797975438" duration="4738000" />
+      <workItem from="1493881818395" duration="4193000" />
+      <workItem from="1493952632797" duration="27000" />
+      <workItem from="1494208210357" duration="8811000" />
+      <workItem from="1494308408832" duration="9259000" />
+      <workItem from="1494393946682" duration="10606000" />
+      <workItem from="1494407552988" duration="620000" />
+      <workItem from="1494464630338" duration="8449000" />
+      <workItem from="1494484863725" duration="8946000" />
+      <workItem from="1494550965056" duration="6412000" />
+      <workItem from="1494567947557" duration="4318000" />
+      <workItem from="1494581542698" duration="1024000" />
+      <workItem from="1494812133175" duration="12689000" />
+      <workItem from="1494897000625" duration="8321000" />
+      <workItem from="1494984554506" duration="16763000" />
+      <workItem from="1495030666839" duration="741000" />
+      <workItem from="1495068827165" duration="2750000" />
+      <workItem from="1495078827513" duration="11029000" />
+      <workItem from="1495155651657" duration="9344000" />
+      <workItem from="1495271982616" duration="591000" />
+      <workItem from="1495417707685" duration="1867000" />
+      <workItem from="1495421628237" duration="3712000" />
+      <workItem from="1495522881483" duration="11027000" />
+      <workItem from="1495588045451" duration="9885000" />
+      <workItem from="1495608775721" duration="7137000" />
+      <workItem from="1495675638512" duration="1065000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="358625000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19583334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.52928257" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32947233" sideWeight="0.47071743" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/components/wangEditor/css/wangEditor.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="43" column="10" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/wangEditor/css/wangEditor.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="0" column="13723" lean-forward="false" selection-start-line="0" selection-start-column="13723" selection-end-line="0" selection-end-column="13723" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-app-nav/css/px-app-nav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="249" column="11" lean-forward="true" selection-start-line="249" selection-start-column="11" selection-end-line="249" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-app-nav/css/px-app-nav-sketch.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="252" column="12" lean-forward="false" selection-start-line="252" selection-start-column="12" selection-end-line="252" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/wangEditor/wangEditor.js" />
+    <entry file="file://$PROJECT_DIR$/public/components/wangEditor/js/wangEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70">
+          <caret line="7439" column="21" lean-forward="false" selection-start-line="7439" selection-start-column="21" selection-end-line="7439" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="44" column="38" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/modules/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/bootstrapper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/dist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="79" column="15" lean-forward="true" selection-start-line="79" selection-start-column="15" selection-end-line="79" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/helpers/proxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-94">
+          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/nginx_local.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="36" column="10" lean-forward="false" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="139" column="49" lean-forward="false" selection-start-line="139" selection-start-column="49" selection-end-line="139" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/options/connect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-dark-theme/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-dark-theme/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/font-awesome/css/font-awesome.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="815" column="1" lean-forward="false" selection-start-line="815" selection-start-column="1" selection-end-line="815" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2091">
+          <caret line="123" column="88" lean-forward="false" selection-start-line="123" selection-start-column="88" selection-end-line="123" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/modules/showAnswer-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="52" column="73" lean-forward="false" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/modules/editAnswer-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/modules/createAnswer-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-context-browser/px-context-browser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1071">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-theme/_px-theme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-theme/_px-app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-theme/px-theme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="61" lean-forward="false" selection-start-line="0" selection-start-column="61" selection-end-line="0" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-app-nav/px-app-nav.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-login/px-login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/polymer-loader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="60" lean-forward="false" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-theme/px-app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/polymer-loader.vulcanized.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/px-data-table/css/px-data-table-highlight-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bower_components/px-dark-theme/px-dark-theme-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3053">
+          <caret line="6" column="15540" lean-forward="false" selection-start-line="6" selection-start-column="15533" selection-end-line="6" selection-end-column="15540" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/px-data-table/css/px-data-table-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="3" column="7448" lean-forward="false" selection-start-line="3" selection-start-column="7448" selection-end-line="3" selection-end-column="7448" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/px-data-table/css/px-data-table-cell-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="3" column="7366" lean-forward="false" selection-start-line="3" selection-start-column="7360" selection-end-line="3" selection-end-column="7366" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/px-data-table/css/aha-table-styles.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="6" column="41716" lean-forward="false" selection-start-line="6" selection-start-column="41716" selection-end-line="6" selection-end-column="41716" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/showAnswer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/createAnswer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="87" column="22" lean-forward="false" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/createAnswer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="51" lean-forward="false" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/showAnswer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/editAnswer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/chart.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="119" column="22" lean-forward="false" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/vudio.js-master/vudio.js-master/vudio.js" />
+    <entry file="file://$PROJECT_DIR$/public/components/vudio.js-master/vudio.js-master/demo.html" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="1170" column="0" lean-forward="false" selection-start-line="1170" selection-start-column="0" selection-end-line="1170" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/chart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/options/copy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="33" lean-forward="false" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/modules/chart-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="189" column="41" lean-forward="false" selection-start-line="189" selection-start-column="41" selection-end-line="189" selection-end-column="41" />
+          <folding>
+            <marker date="1495676360480" expanded="true" signature="4028:4040" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="4125:4136" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="4170:4182" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="5048:5059" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="5114:5126" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="5211:5237" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="5271:5294" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="9035:9046" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="9101:9113" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="9198:9224" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="9258:9281" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="9883:9894" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="9949:9961" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="10046:10072" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="10106:10129" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="16039:16050" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="16105:16117" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="16202:16228" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="16262:16285" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="16887:16898" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="16953:16965" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="17050:17076" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="17110:17133" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="21244:21255" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="21310:21322" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="21407:21433" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="21467:21490" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="22092:22103" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="22158:22170" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="22255:22281" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="22315:22338" ph="..." />
+            <marker date="1495676360480" expanded="true" signature="22337:22338" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/recorder/HZRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="67" lean-forward="false" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

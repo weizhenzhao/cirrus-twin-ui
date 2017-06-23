@@ -1,0 +1,80 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Chart</title>
+
+ <link rel="stylesheet" href="../css/chart.css">
+<style type="text/css">
+    main{background-color:#1C2934!important;}
+    .chatList{background-color: #BDCBD4;}
+    .title_chat{background-color: #4c6472;}
+    .title_chat label{color: #BDCBD4!important;}
+    .voice{background-color: #30444E;}
+    .sendMesg{background-color: #BDCBD4}
+    .sendTxtArea{background-color: #BDCBD4}
+    .detailAnswer{background-color: #BDCBD4};
+</style>
+
+    <script src="../components/vudio.js-master/vudio.js"></script>
+</head>
+
+<body>
+<div class="mainChat">
+    <audio   id = "audio" type="hidden" name="speechvalue"></audio>
+    <div class="chatArea" style="color:#666">
+        <div class="title_chat">
+           <label style="margin-top:0px;line-height:0px;"><img src="images/user1.png"></label>
+           <label style="margin-top:-3px;">User A</label>
+        </div>
+        <div class="chatList"  style="color:#BDCBD4" id="chartContent">
+           <div class="message">
+               <img src="images/user11.png" width="40" height="40">
+               <div class="bubble left">
+                  <div class="bubble_cont">Hello!</div>
+               </div>
+           </div>
+           <!--<div class="message me">-->
+               <!--<img src="images/user00.png" width="40" height="40">-->
+               <!--<div class="bubble right bubble_primary">-->
+                  <!--<div class="bubble_cont">Hello world! Hello world! Hello world!</div>-->
+               <!--</div>-->
+           <!--</div>-->
+
+
+        </div>
+
+        <div class="tools" style="background-color: #4c6472">
+            <ul style="margin-top: 5px;">
+                <audio type="hidden" name="speechvalue"></audio>
+               <li id="recordBtn" class="recordLoss"><a ng-mousedown="startRecord()" ng-mouseup="stopRecord()" href="#"><img src="images/microphone.png" width="32" height="32"></a></li>
+               <li id="muteBtn" class="muteFalse"><a ng-click="mute()" href="#"><img src="images/closemicrophone.png" width="32" height="32"></a></li>
+               <li><a href="#"><img src="images/fontsize-b.png" width="28" height="28"></a></li>
+               <li style="margin-right:0;"><a href=""><img src="images/fontsize-s.png" width="28" height="28"></a></li>
+            </ul>
+        </div>
+        <div class="voice" style="text-align:center;"><canvas height:30px;bottom:150px;width:100%; id="canvas"></canvas></div>
+        <div class="sendMesg" >
+          <textarea  class="sendTxtArea"  ng-model="sendTxt"></textarea>
+          <button type="button" ng-click="sendMsg()">Send</button>
+        </div>
+    </div>
+    <div id="detailArea" class="detailAnswer" style="height:100%;">
+
+        Record <px-toggle id="check" style="margin-top:10px" ng-click="toggleTest()" checked="false" size="small" ></px-toggle>
+        <!--<div class="title_right">Detail Answer</div>-->
+        <!--<div class="messageDetail">-->
+               <!--<img src="images/user1.png" width="40" height="40">-->
+               <!--<div class="bubble left">-->
+                  <!--<div class="bubble_cont">Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!</div>-->
+               <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+</script>
+</body>
+</html>

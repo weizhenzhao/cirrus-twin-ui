@@ -1,0 +1,159 @@
+/**
+ * Load controllers, directives, filters, services before bootstrapping the application.
+ * NOTE: These are named references that are defined inside of the config.js RequireJS configuration file.
+ */
+define([
+
+    'jquery',
+
+    'angular',
+    'angularTranslate',
+    'angularTranslateStatic',
+    // 'vudio',
+    'jqueryMd5',
+    'jqueryChart',
+    'jqueryLoad',
+    'main',
+    'routes',
+    'interceptors',
+    'px-datasource',
+    'ng-bind-polymer',
+    'wangEditor',
+
+    'recorder'
+
+], function ($, angular) {
+    'use strict';
+
+    /**
+     * Application definition
+     * This is where the AngularJS application is defined and all application dependencies declared.
+     * @type {module}
+     */
+    var predixApp = angular.module('predixApp', [
+        'app.routes',
+        'app.interceptors',
+        'px.module',
+        'pascalprecht.translate',
+        'predix.datasource',
+        'px.ngBindPolymer'
+    ]);
+
+    /**
+     * Main Controller
+     * This controller is the top most level controller that allows for all
+     * child controllers to access properties defined on the $rootScope.
+     */
+    /*
+    angular.module('predixApp').controller('LanguageSwitchingCtrl', ['$scope', '$translate', function (scope, $translate) {
+        var currentLang=sessionStorage.getItem("lang");
+        setTimeout(function () {
+            window.App.tabs[0].label = $translate.instant('INDEX');
+            window.App.tabs[1].label = $translate.instant('HISTORYDATA');
+        });
+        if(currentLang=='cn'||currentLang=='undefined'||currentLang==null){
+            $("#language").text("中文");
+            $("#curTime").text('当前时间');
+            $("#netWork").text('网络');
+            $translate.use('cn');
+
+        }else if(currentLang=='en'){
+            $("#language").text('ENGLISH');
+            $("#curTime").text('Time');
+            $("#netWork").text('NETWORK');
+            $translate.use('en');
+        }
+        scope.switchingEn = function(lang){
+            $translate.use(lang);
+            $("#language").text("ENGLISH");
+            sessionStorage.setItem("lang",lang);
+            var language = document.getElementById("language");
+             langlist.style.display = "none";
+            $("#curTime").text('Time');
+            $("#netWork").text('NETWORK');
+
+            setTimeout(function () {
+                window.App.tabs[0].label = $translate.instant('INDEX');
+                window.App.tabs[1].label = $translate.instant('HISTORYDATA');
+            });
+            window.location.reload();
+        };
+        scope.switchingCn = function(lang){
+
+            $translate.use(lang);
+            $("#language").text("中文");
+            sessionStorage.setItem("lang",lang);
+            var language = document.getElementById("language");
+            langlist.style.display = "none";
+            $("#curTime").text('当前时间');
+            $("#netWork").text('网络');
+
+            // $translate.refresh();
+
+            setTimeout(function () {
+                window.App.tabs[0].label = $translate.instant('INDEX');
+                window.App.tabs[1].label = $translate.instant('HISTORYDATA');
+            });
+            window.location.reload();
+        };
+        scope.cur_lang = $translate.use();
+    }]);
+    */
+    predixApp.config(['$translateProvider', function($translateProvider) {
+        $translateProvider.useStaticFilesLoader({
+            prefix: './i18n/',
+            suffix: '.json'
+        });
+
+        $translateProvider.registerAvailableLanguageKeys(['en', 'cn'], {
+            'en_*': 'en',
+            'zh_*': 'cn'
+        });
+
+        //auto determine preferred lang
+        $translateProvider.determinePreferredLanguage();
+        //when can not determine lang, choose en lang
+        $translateProvider.fallbackLanguage('cn');
+    }]);
+
+    predixApp.controller('MainCtrl', ['$translate','$scope', '$rootScope', 'PredixUserService', function ($translate,$scope, $rootScope, predixUserService) {
+        //Global application object
+        // $rootScope.$on('$stateChangeStart', function(event, next, current) {
+        // });
+
+        window.App = $rootScope.App = {
+            version: '1.0',
+            name: 'Cirrus Twin',
+            session: {},
+            tabs: [
+                {icon: 'fa-globe', state: 'twinbot', label:'Twin Bot'},
+                {icon: 'fa-tachometer', state: 'showAnswer', label:'Answer Management'},
+            ]
+
+
+        };
+
+        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+            if (angular.isObject(error) && angular.isString(error.code)) {
+                switch (error.code) {
+                    case 'UNAUTHORIZED':
+                        //redirect
+                        predixUserService.login(toState);
+                        break;
+                    default:
+                        //go to other error state
+                }
+            }
+            else {
+                // unexpected error
+            }
+        });
+    }]);
+
+
+    //Set on window for debugging
+    window.predixApp = predixApp;
+
+    //Return the application  object
+    return predixApp;
+});
